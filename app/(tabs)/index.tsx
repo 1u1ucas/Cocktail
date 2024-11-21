@@ -1,4 +1,4 @@
-import { Text, View, Image, FlatList, TouchableOpacity, ScrollView, StyleSheet, Button, TextInput } from "react-native";
+import { Text, View, Image, FlatList, TouchableOpacity, ScrollView, StyleSheet, Button, TextInput, Alert } from "react-native";
 import { useRouter } from 'expo-router';
 import { useState } from "react";
 import { CocktailDto } from "@/dto/cocktailDto";
@@ -15,6 +15,10 @@ export default function Index() {
 
   const handlePressAllPages = () => {
     router.push('cocktails');
+  };
+
+  const handleDisplayMessage = () => {
+    Alert.alert("Vous avez un nouveau message", "T ou ????");
   };
 
   const lastSixCocktails = cocktails.slice(-6);
@@ -38,6 +42,8 @@ export default function Index() {
           )}
         />
         <Button title="All Cocktails" onPress={handlePressAllPages} />
+        <Button title="Message" onPress={handleDisplayMessage} />
+        
       </View>
     </ScrollView>
   );
